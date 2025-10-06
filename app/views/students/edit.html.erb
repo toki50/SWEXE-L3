@@ -1,9 +1,5 @@
-<%= form_with model: @student do |f| %>
-  <%= f.label :name, '名前' %>
-  <%= f.text_field :name%>
-  <%= f.label :number, '学籍番号' %>
-  <%= f.text_field :number%>
-   <%= f.label :maile, 'メールアドレス' %>
-  <%= f.text_field :mai%>
-  <%= f.submit '更新' %>
-<% end %>
+<h2>学生情報の編集</h2>
+
+<%= render "form", student: @student %>
+
+<%= link_to "戻る", student_path(@student) %>

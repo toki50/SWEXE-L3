@@ -1,25 +1,25 @@
 <% if flash[:notice] %>
-    <%= flash[:notice] %>
+  <p style="color: green;"><%= flash[:notice] %></p>
 <% end %>
-<div style="margin-bottom: 5px;">
-    <a href="/students/new" style="background-color: #007bff; color: white; padding: 8px 12px;  border-radius: 2px;">新規作成</a>
+
+<div style="margin-bottom: 10px;">
+  <%= link_to "新規作成", new_student_path,
+      style: "background-color: #007bff; color: white; padding: 8px 12px; border-radius: 4px; text-decoration: none;" %>
 </div>
 
-
-
-
 <% @students.each do |student| %>
- <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+  <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
     <p>
-      <strong><a href="/students/<%= student.id %>"><%= student.name %></a></strong><br>
+      <strong><%= link_to student.name, student_path(student) %></strong><br>
       学籍番号: <%= student.number %><br>
       メール: <%= student.maile %>
     </p>
-  <p>
-
-    <%= link_to '削除', student_path(student), data: { turbo_method: :delete } %>
-    <%= link_to '表示', student_path(student) %>
-    <%= link_to '編集', edit_student_path(student) %>
-  </p>
+    <p>
+      <%= link_to "表示", student_path(student), style: "margin-right: 8px;" %>
+      <%= link_to "編集", edit_student_path(student), style: "margin-right: 8px;" %>
+      <%= link_to "削除", student_path(student),
+          data: { turbo_method: :delete, confirm: "本当に削除しますか？" },
+          style: "color: red;" %>
+    </p>
   </div>
 <% end %>

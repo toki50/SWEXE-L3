@@ -8,3 +8,45 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+/* app/assets/stylesheets/application.css */
+
+/* レイアウト全体 */
+#container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar content"
+    "footer footer";
+  grid-template-columns: 200px 1fr;
+  min-height: 100vh;
+}
+
+/* 各ブロック */
+#header {
+  grid-area: header;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+#sidebar {
+  grid-area: sidebar;
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+#content {
+  grid-area: content;
+  padding: 20px;
+  background-color: #fff;
+}
+
+#footer {
+  grid-area: footer;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: auto;
+}

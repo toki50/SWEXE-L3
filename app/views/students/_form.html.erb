@@ -1,0 +1,29 @@
+<% if student.errors.present? %>
+  <h3>エラーがあります。</h3>
+  <ul>
+    <% student.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: student do |f| %>
+  <div>
+    <%= f.label :name, '名前' %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :number, '学籍番号' %><br>
+    <%= f.text_field :number %>
+  </div>
+
+  <div>
+    <%= f.label :maile, 'メールアドレス' %><br>
+    <%= f.text_field :maile %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
